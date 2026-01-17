@@ -1,0 +1,168 @@
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+body {
+    font-family: 'Courier New', 'Monaco', 'Menlo', 'Consolas', monospace;
+    background: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.container,
+.content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+    min-height: 100vh;
+}
+
+h1 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+h2 {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+ol, ul {
+    margin-left: 0;
+    margin-bottom: 15px;
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+p {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+strong {
+    font-weight: bold;
+}
+
+a {
+    color: #1976d2;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.link {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+.link:hover {
+    color: #0056b3;
+}
+
+.back-link {
+    display: block;
+    text-align: center;
+    margin: 20px auto;
+    color: #666;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.back-link:hover {
+    color: #333;
+}
+
+.last-updated,
+.muted {
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.prompt,
+.small {
+    color: #666;
+    font-size: 16px;
+}
+
+.prompt {
+    margin-top: 30px;
+}
+
+.title,
+.section-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.section-title {
+    font-size: 22px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.section {
+    margin-bottom: 30px;
+}
+
+.subsection-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+code {
+    font-family: monospace;
+    background-color: #f4f4f4;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-size: 0.9em;
+}
+
+@media (max-width: 600px) {
+    .container,
+    .content {
+        padding: 20px;
+    }
+    
+    h1 {
+        font-size: 24px;
+    }
+    
+    h2 {
+        font-size: 20px;
+    }
+    
+    h3 {
+        font-size: 18px;
+    }
+}
