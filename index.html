@@ -4,169 +4,360 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WRK Labs</title>
-    <link rel="stylesheet" href="styles.css">
     <style>
+        :root {
+            --color-bg: #0B0B0D;
+            --color-card: #17171B;
+            --color-border: #262629;
+            --color-ink: #F2F2F2;
+            --color-muted: #9A9AA2;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background:
+                radial-gradient(600px 300px at 50% -10%, rgba(90, 140, 255, 0.14), transparent 70%),
+                var(--color-bg);
+            color: var(--color-ink);
+            min-height: 100vh;
         }
+
         .container {
-            padding: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 64px 24px 80px;
         }
-        h1 {
+
+        header {
             text-align: center;
+            margin-bottom: 48px;
         }
-        nav {
+
+        .wordmark {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, #4DA6FF, #8B7FD6 50%, #F2A93B);
+            font-weight: 800;
+            font-size: 22px;
+            color: #0B0B0D;
+            margin-bottom: 18px;
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin: 0 0 8px;
+        }
+
+        .subtitle {
+            color: var(--color-muted);
+            font-size: 16px;
+            margin: 0;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 16px;
+        }
+
+        .app-card {
+            position: relative;
+            background: var(--color-card);
+            border: 1px solid var(--color-border);
+            border-radius: 20px;
+            padding: 22px;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            gap: 0;
-            max-width: 400px;
-            margin: 0 auto;
+            gap: 16px;
+            overflow: hidden;
+            transition: border-color 0.2s ease, transform 0.2s ease;
         }
-        .app-row {
+
+        .app-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .app-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        .app-card-header {
             display: flex;
             align-items: center;
-            padding: 8px 0;
-            border-bottom: 1px solid #eee;
+            gap: 12px;
         }
+
+        .app-avatar {
+            flex: 0 0 auto;
+            width: 42px;
+            height: 42px;
+            border-radius: 13px;
+            background: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 17px;
+            color: #0B0B0D;
+        }
+
         .app-name {
-            font-weight: 500;
-            min-width: 80px;
+            font-weight: 700;
+            font-size: 17px;
         }
-        .play-icon {
-            width: 20px;
-            height: 20px;
-            margin: 0 10px;
-            opacity: 0.7;
-            transition: opacity 0.2s ease;
-            color: #666;
-            cursor: pointer;
+
+        .app-tagline {
+            color: var(--color-muted);
+            font-size: 13px;
+            margin: -8px 0 0;
         }
-        .play-icon:hover {
-            opacity: 1;
-            color: #1976d2;
+
+        .app-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: auto;
         }
-        nav a {
-            margin-left: 5px;
-            font-size: 14px;
+
+        .app-actions a {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 10px 10px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            border: 1px solid var(--color-border);
+            color: var(--color-muted);
+            transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
         }
+
+        .app-actions a:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .app-actions svg {
+            width: 15px;
+            height: 15px;
+            flex: 0 0 auto;
+        }
+
+        footer {
+            text-align: center;
+            color: var(--color-muted);
+            font-size: 13px;
+            margin-top: 56px;
+        }
+
         @media (max-width: 600px) {
             .container {
-                padding: 20px;
+                padding: 40px 16px 56px;
             }
-            nav a {
-                font-size: 14px;
+            h1 {
+                font-size: 26px;
             }
-            .play-icon {
-                width: 20px;
-                height: 20px;
+            .grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>WRK Labs</h1>
-        <p style="text-align: center; color: #666; margin-bottom: 40px; font-size: 16px;">Explore our collection of productivity and learning apps</p>
-        <nav>
-            <div class="app-row">
-                <span class="app-name">WRK</span>
-                <a href="https://play.google.com/store/apps/details?id=live.suture.wrk" target="_blank">
-                    <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M3 20.5V3.5C3 2.91 3.34 2.39 3.84 2.15L13.69 12L3.84 21.85C3.34 21.61 3 21.09 3 20.5Z"/>
-                        <path d="M16.81 15.12L6.05 21.34L14.54 12.85L16.81 15.12Z"/>
-                        <path d="M20.16 10.81C20.5 11.08 20.75 11.53 20.75 12C20.75 12.47 20.5 12.92 20.16 13.19L17.89 14.5L15.39 12L17.89 9.5L20.16 10.81Z"/>
-                        <path d="M6.05 2.66L16.81 8.88L14.54 11.15L6.05 2.66Z"/>
-                    </svg>
-                </a>
-                <a href="wrk.html">privacy policy and TOS</a>
+        <header>
+            <div class="wordmark">W</div>
+            <h1>WRK Labs</h1>
+            <p class="subtitle">Explore our collection of productivity and learning apps</p>
+        </header>
+
+        <div class="grid">
+            <div class="app-card" style="--accent: #4DA6FF;">
+                <div class="app-card-header">
+                    <div class="app-avatar">W</div>
+                    <div class="app-name">WRK</div>
+                </div>
+                <p class="app-tagline">Study targets & focus tracking</p>
+                <div class="app-actions">
+                    <a href="https://play.google.com/store/apps/details?id=live.suture.wrk" target="_blank">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M3 20.5V3.5C3 2.91 3.34 2.39 3.84 2.15L13.69 12L3.84 21.85C3.34 21.61 3 21.09 3 20.5Z"/>
+                            <path d="M16.81 15.12L6.05 21.34L14.54 12.85L16.81 15.12Z"/>
+                            <path d="M20.16 10.81C20.5 11.08 20.75 11.53 20.75 12C20.75 12.47 20.5 12.92 20.16 13.19L17.89 14.5L15.39 12L17.89 9.5L20.16 10.81Z"/>
+                            <path d="M6.05 2.66L16.81 8.88L14.54 11.15L6.05 2.66Z"/>
+                        </svg>
+                        Play Store
+                    </a>
+                    <a href="wrk.html">Privacy & TOS</a>
+                </div>
             </div>
-            <div class="app-row">
-                <span class="app-name">Blocs</span>
-                <a href="https://play.google.com/store/apps/details?id=live.suture.blocs" target="_blank">
-                    <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M3 20.5V3.5C3 2.91 3.34 2.39 3.84 2.15L13.69 12L3.84 21.85C3.34 21.61 3 21.09 3 20.5Z"/>
-                        <path d="M16.81 15.12L6.05 21.34L14.54 12.85L16.81 15.12Z"/>
-                        <path d="M20.16 10.81C20.5 11.08 20.75 11.53 20.75 12C20.75 12.47 20.5 12.92 20.16 13.19L17.89 14.5L15.39 12L17.89 9.5L20.16 10.81Z"/>
-                        <path d="M6.05 2.66L16.81 8.88L14.54 11.15L6.05 2.66Z"/>
-                    </svg>
-                </a>
-                <a href="blocs.html">privacy policy and TOS</a>
+
+            <div class="app-card" style="--accent: #8B7FD6;">
+                <div class="app-card-header">
+                    <div class="app-avatar">B</div>
+                    <div class="app-name">Blocs</div>
+                </div>
+                <p class="app-tagline">Building-block productivity</p>
+                <div class="app-actions">
+                    <a href="https://play.google.com/store/apps/details?id=live.suture.blocs" target="_blank">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M3 20.5V3.5C3 2.91 3.34 2.39 3.84 2.15L13.69 12L3.84 21.85C3.34 21.61 3 21.09 3 20.5Z"/>
+                            <path d="M16.81 15.12L6.05 21.34L14.54 12.85L16.81 15.12Z"/>
+                            <path d="M20.16 10.81C20.5 11.08 20.75 11.53 20.75 12C20.75 12.47 20.5 12.92 20.16 13.19L17.89 14.5L15.39 12L17.89 9.5L20.16 10.81Z"/>
+                            <path d="M6.05 2.66L16.81 8.88L14.54 11.15L6.05 2.66Z"/>
+                        </svg>
+                        Play Store
+                    </a>
+                    <a href="blocs.html">Privacy & TOS</a>
+                </div>
             </div>
-            <div class="app-row">
-                <span class="app-name">Nested</span>
-                <a href="https://play.google.com/store/apps/details?id=live.suture.nested" target="_blank">
-                    <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M3 20.5V3.5C3 2.91 3.34 2.39 3.84 2.15L13.69 12L3.84 21.85C3.34 21.61 3 21.09 3 20.5Z"/>
-                        <path d="M16.81 15.12L6.05 21.34L14.54 12.85L16.81 15.12Z"/>
-                        <path d="M20.16 10.81C20.5 11.08 20.75 11.53 20.75 12C20.75 12.47 20.5 12.92 20.16 13.19L17.89 14.5L15.39 12L17.89 9.5L20.16 10.81Z"/>
-                        <path d="M6.05 2.66L16.81 8.88L14.54 11.15L6.05 2.66Z"/>
-                    </svg>
-                </a>
-                <a href="nested.html">privacy policy and TOS</a>
+
+            <div class="app-card" style="--accent: #C1554B;">
+                <div class="app-card-header">
+                    <div class="app-avatar">N</div>
+                    <div class="app-name">Nested</div>
+                </div>
+                <p class="app-tagline">Nested notes & priorities</p>
+                <div class="app-actions">
+                    <a href="https://play.google.com/store/apps/details?id=live.suture.nested" target="_blank">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M3 20.5V3.5C3 2.91 3.34 2.39 3.84 2.15L13.69 12L3.84 21.85C3.34 21.61 3 21.09 3 20.5Z"/>
+                            <path d="M16.81 15.12L6.05 21.34L14.54 12.85L16.81 15.12Z"/>
+                            <path d="M20.16 10.81C20.5 11.08 20.75 11.53 20.75 12C20.75 12.47 20.5 12.92 20.16 13.19L17.89 14.5L15.39 12L17.89 9.5L20.16 10.81Z"/>
+                            <path d="M6.05 2.66L16.81 8.88L14.54 11.15L6.05 2.66Z"/>
+                        </svg>
+                        Play Store
+                    </a>
+                    <a href="nested.html">Privacy & TOS</a>
+                </div>
             </div>
-            <div class="app-row">
-                <span class="app-name">CRDs</span>
-                <a href="https://play.google.com/store/apps/details?id=live.suture.ankipad" target="_blank">
-                    <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M3 20.5V3.5C3 2.91 3.34 2.39 3.84 2.15L13.69 12L3.84 21.85C3.34 21.61 3 21.09 3 20.5Z"/>
-                        <path d="M16.81 15.12L6.05 21.34L14.54 12.85L16.81 15.12Z"/>
-                        <path d="M20.16 10.81C20.5 11.08 20.75 11.53 20.75 12C20.75 12.47 20.5 12.92 20.16 13.19L17.89 14.5L15.39 12L17.89 9.5L20.16 10.81Z"/>
-                        <path d="M6.05 2.66L16.81 8.88L14.54 11.15L6.05 2.66Z"/>
-                    </svg>
-                </a>
-                <a href="crds.html">privacy policy and TOS</a>
+
+            <div class="app-card" style="--accent: #E8836A;">
+                <div class="app-card-header">
+                    <div class="app-avatar">C</div>
+                    <div class="app-name">CRDs</div>
+                </div>
+                <p class="app-tagline">Flashcards, drawn or typed</p>
+                <div class="app-actions">
+                    <a href="https://play.google.com/store/apps/details?id=live.suture.ankipad" target="_blank">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M3 20.5V3.5C3 2.91 3.34 2.39 3.84 2.15L13.69 12L3.84 21.85C3.34 21.61 3 21.09 3 20.5Z"/>
+                            <path d="M16.81 15.12L6.05 21.34L14.54 12.85L16.81 15.12Z"/>
+                            <path d="M20.16 10.81C20.5 11.08 20.75 11.53 20.75 12C20.75 12.47 20.5 12.92 20.16 13.19L17.89 14.5L15.39 12L17.89 9.5L20.16 10.81Z"/>
+                            <path d="M6.05 2.66L16.81 8.88L14.54 11.15L6.05 2.66Z"/>
+                        </svg>
+                        Play Store
+                    </a>
+                    <a href="crds.html">Privacy & TOS</a>
+                </div>
             </div>
-            <div class="app-row">
-                <span class="app-name">Suture</span>
-                <a href="https://play.google.com/store/apps/details?id=live.suture.suture" target="_blank">
-                    <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M3 20.5V3.5C3 2.91 3.34 2.39 3.84 2.15L13.69 12L3.84 21.85C3.34 21.61 3 21.09 3 20.5Z"/>
-                        <path d="M16.81 15.12L6.05 21.34L14.54 12.85L16.81 15.12Z"/>
-                        <path d="M20.16 10.81C20.5 11.08 20.75 11.53 20.75 12C20.75 12.47 20.5 12.92 20.16 13.19L17.89 14.5L15.39 12L17.89 9.5L20.16 10.81Z"/>
-                        <path d="M6.05 2.66L16.81 8.88L14.54 11.15L6.05 2.66Z"/>
-                    </svg>
-                </a>
-                <a href="suture.html">privacy policy and TOS</a>
+
+            <div class="app-card" style="--accent: #F2A93B;">
+                <div class="app-card-header">
+                    <div class="app-avatar">S</div>
+                    <div class="app-name">Suture</div>
+                </div>
+                <p class="app-tagline">MCQs, notes & quiz arena</p>
+                <div class="app-actions">
+                    <a href="https://play.google.com/store/apps/details?id=live.suture.suture" target="_blank">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M3 20.5V3.5C3 2.91 3.34 2.39 3.84 2.15L13.69 12L3.84 21.85C3.34 21.61 3 21.09 3 20.5Z"/>
+                            <path d="M16.81 15.12L6.05 21.34L14.54 12.85L16.81 15.12Z"/>
+                            <path d="M20.16 10.81C20.5 11.08 20.75 11.53 20.75 12C20.75 12.47 20.5 12.92 20.16 13.19L17.89 14.5L15.39 12L17.89 9.5L20.16 10.81Z"/>
+                            <path d="M6.05 2.66L16.81 8.88L14.54 11.15L6.05 2.66Z"/>
+                        </svg>
+                        Play Store
+                    </a>
+                    <a href="suture.html">Privacy & TOS</a>
+                </div>
             </div>
-            <div class="app-row">
-                <span class="app-name">Bowl</span>
-                <a href="https://play.google.com/store/apps/details?id=in.wrklabs.bowl" target="_blank">
-                    <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M3 20.5V3.5C3 2.91 3.34 2.39 3.84 2.15L13.69 12L3.84 21.85C3.34 21.61 3 21.09 3 20.5Z"/>
-                        <path d="M16.81 15.12L6.05 21.34L14.54 12.85L16.81 15.12Z"/>
-                        <path d="M20.16 10.81C20.5 11.08 20.75 11.53 20.75 12C20.75 12.47 20.5 12.92 20.16 13.19L17.89 14.5L15.39 12L17.89 9.5L20.16 10.81Z"/>
-                        <path d="M6.05 2.66L16.81 8.88L14.54 11.15L6.05 2.66Z"/>
-                    </svg>
-                </a>
-                <a href="bowl.html">privacy policy and TOS</a>
+
+            <div class="app-card" style="--accent: #4E8FA8;">
+                <div class="app-card-header">
+                    <div class="app-avatar">B</div>
+                    <div class="app-name">Bowl</div>
+                </div>
+                <p class="app-tagline">Nutrition & calorie tracking</p>
+                <div class="app-actions">
+                    <a href="https://play.google.com/store/apps/details?id=in.wrklabs.bowl" target="_blank">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M3 20.5V3.5C3 2.91 3.34 2.39 3.84 2.15L13.69 12L3.84 21.85C3.34 21.61 3 21.09 3 20.5Z"/>
+                            <path d="M16.81 15.12L6.05 21.34L14.54 12.85L16.81 15.12Z"/>
+                            <path d="M20.16 10.81C20.5 11.08 20.75 11.53 20.75 12C20.75 12.47 20.5 12.92 20.16 13.19L17.89 14.5L15.39 12L17.89 9.5L20.16 10.81Z"/>
+                            <path d="M6.05 2.66L16.81 8.88L14.54 11.15L6.05 2.66Z"/>
+                        </svg>
+                        Play Store
+                    </a>
+                    <a href="bowl.html">Privacy & TOS</a>
+                </div>
             </div>
-            <div class="app-row">
-                <span class="app-name">Heave</span>
-                <a href="https://play.google.com/store/apps/details?id=in.wrklabs.heave" target="_blank">
-                    <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M3 20.5V3.5C3 2.91 3.34 2.39 3.84 2.15L13.69 12L3.84 21.85C3.34 21.61 3 21.09 3 20.5Z"/>
-                        <path d="M16.81 15.12L6.05 21.34L14.54 12.85L16.81 15.12Z"/>
-                        <path d="M20.16 10.81C20.5 11.08 20.75 11.53 20.75 12C20.75 12.47 20.5 12.92 20.16 13.19L17.89 14.5L15.39 12L17.89 9.5L20.16 10.81Z"/>
-                        <path d="M6.05 2.66L16.81 8.88L14.54 11.15L6.05 2.66Z"/>
-                    </svg>
-                </a>
-                <a href="heave.html">privacy policy and TOS</a>
+
+            <div class="app-card" style="--accent: #D9F227;">
+                <div class="app-card-header">
+                    <div class="app-avatar">H</div>
+                    <div class="app-name">Heave</div>
+                </div>
+                <p class="app-tagline">Workout & timer tracking</p>
+                <div class="app-actions">
+                    <a href="https://play.google.com/store/apps/details?id=in.wrklabs.heave" target="_blank">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M3 20.5V3.5C3 2.91 3.34 2.39 3.84 2.15L13.69 12L3.84 21.85C3.34 21.61 3 21.09 3 20.5Z"/>
+                            <path d="M16.81 15.12L6.05 21.34L14.54 12.85L16.81 15.12Z"/>
+                            <path d="M20.16 10.81C20.5 11.08 20.75 11.53 20.75 12C20.75 12.47 20.5 12.92 20.16 13.19L17.89 14.5L15.39 12L17.89 9.5L20.16 10.81Z"/>
+                            <path d="M6.05 2.66L16.81 8.88L14.54 11.15L6.05 2.66Z"/>
+                        </svg>
+                        Play Store
+                    </a>
+                    <a href="heave.html">Privacy & TOS</a>
+                </div>
             </div>
-            <div class="app-row">
-                <span class="app-name">Kaas</span>
-                <a href="https://play.google.com/store/apps/details?id=in.wrklabs.moneytracker" target="_blank">
-                    <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M3 20.5V3.5C3 2.91 3.34 2.39 3.84 2.15L13.69 12L3.84 21.85C3.34 21.61 3 21.09 3 20.5Z"/>
-                        <path d="M16.81 15.12L6.05 21.34L14.54 12.85L16.81 15.12Z"/>
-                        <path d="M20.16 10.81C20.5 11.08 20.75 11.53 20.75 12C20.75 12.47 20.5 12.92 20.16 13.19L17.89 14.5L15.39 12L17.89 9.5L20.16 10.81Z"/>
-                        <path d="M6.05 2.66L16.81 8.88L14.54 11.15L6.05 2.66Z"/>
-                    </svg>
-                </a>
-                <a href="kaas.html">privacy policy and TOS</a>
+
+            <div class="app-card" style="--accent: #3F7D68;">
+                <div class="app-card-header">
+                    <div class="app-avatar">K</div>
+                    <div class="app-name">Kaas</div>
+                </div>
+                <p class="app-tagline">Personal finance tracker</p>
+                <div class="app-actions">
+                    <a href="https://play.google.com/store/apps/details?id=in.wrklabs.moneytracker" target="_blank">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M3 20.5V3.5C3 2.91 3.34 2.39 3.84 2.15L13.69 12L3.84 21.85C3.34 21.61 3 21.09 3 20.5Z"/>
+                            <path d="M16.81 15.12L6.05 21.34L14.54 12.85L16.81 15.12Z"/>
+                            <path d="M20.16 10.81C20.5 11.08 20.75 11.53 20.75 12C20.75 12.47 20.5 12.92 20.16 13.19L17.89 14.5L15.39 12L17.89 9.5L20.16 10.81Z"/>
+                            <path d="M6.05 2.66L16.81 8.88L14.54 11.15L6.05 2.66Z"/>
+                        </svg>
+                        Play Store
+                    </a>
+                    <a href="kaas.html">Privacy & TOS</a>
+                </div>
             </div>
-        </nav>
+        </div>
+
+        <footer>
+            <p>WRK Labs — built with care.</p>
+        </footer>
     </div>
 </body>
 </html>
