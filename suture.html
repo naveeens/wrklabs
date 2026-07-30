@@ -4,19 +4,168 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Suture — Privacy Policy & Terms of Service</title>
-  <link rel="stylesheet" href="styles.css">
   <style>
-    .list {
-        margin-left: 20px;
-        margin-bottom: 15px;
+    :root {
+      /* Suture app design tokens */
+      --color-bg: #0D0D0D;
+      --color-surface: #1C1C1C;
+      --color-card: #232323;
+      --color-border: #2C2C2C;
+      --color-divider: #2C2C2C;
+      --color-ink: #F2F2F2;
+      --color-muted: #9B9B9B;
+      --color-amber: #F2A93B;
+      --color-amber-soft: rgba(242, 169, 59, 0.12);
     }
-    .list-item {
-        margin-bottom: 8px;
-        line-height: 1.5;
+
+    * {
+      box-sizing: border-box;
     }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 40px 20px 60px;
+      color: var(--color-ink);
+      background: var(--color-bg);
+      line-height: 1.6;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 28px;
+      text-decoration: none;
+      color: var(--color-muted);
+      font-weight: 600;
+      font-size: 15px;
+      transition: transform 0.15s ease, color 0.15s ease;
+    }
+
+    .back-link:hover {
+      color: var(--color-amber);
+      transform: translateX(-4px);
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      color: var(--color-ink);
+      margin-bottom: 6px;
+    }
+
+    .date {
+      display: block;
+      color: var(--color-muted);
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
     .text {
-        margin-bottom: 15px;
-        color: #333;
+      color: var(--color-ink);
+      opacity: 0.85;
+      margin-bottom: 15px;
+    }
+
+    section.card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 20px;
+      padding: 28px 28px 8px;
+      margin-bottom: 24px;
+    }
+
+    h2 {
+      display: inline-block;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--color-amber);
+      margin-bottom: 12px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    h2::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 40px;
+      height: 3px;
+      border-radius: 2px;
+      background: var(--color-amber);
+    }
+
+    .list {
+      list-style: none;
+      margin: 8px 0 0;
+      padding: 0;
+    }
+
+    .list-item {
+      background: var(--color-card);
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      padding: 16px 18px;
+      margin-bottom: 12px;
+    }
+
+    .list-item:last-child {
+      margin-bottom: 20px;
+    }
+
+    .list-item strong {
+      display: block;
+      color: var(--color-ink);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .list-item {
+      color: var(--color-ink);
+      opacity: 0.85;
+      font-size: 15px;
+    }
+
+    .contact-wrap {
+      margin-top: 8px;
+    }
+
+    .contact {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 8px;
+      padding: 14px 22px;
+      background: var(--color-amber);
+      border-radius: 14px;
+      text-decoration: none;
+      color: #1A1200;
+      font-weight: 700;
+      font-size: 15px;
+      transition: filter 0.15s ease, transform 0.15s ease;
+    }
+
+    .contact:hover {
+      filter: brightness(1.08);
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 24px 16px 48px;
+      }
+      h1 {
+        font-size: 24px;
+      }
+      section.card {
+        padding: 22px 18px 4px;
+        border-radius: 18px;
+      }
     }
   </style>
 </head>
@@ -25,11 +174,12 @@
     <a href="index.html" class="back-link">← back to index</a>
 
     <h1>Privacy Policy and Terms of Service for Suture</h1>
-    <p>Date: July 30, 2026</p>
+    <span class="date">Date: July 30, 2026</span>
     <p class="text">Thank you for using Suture ("the App"). This document outlines our commitment to your privacy and the terms you agree to when using the App.</p>
 
-    <h2>Privacy Policy</h2>
-    <ol class="list">
+    <section class="card">
+      <h2>Privacy Policy</h2>
+      <ol class="list">
         <li class="list-item">
             <strong>Account Registration & Personal Information.</strong> To access certain features of the App—such as syncing official materials and participating in the 1v1 Quiz Arena—you must register for an account. When you sign up, we collect and store your email address and authentication credentials. This information is used solely to authenticate your identity, manage your account, and host your online gameplay profile. We do not sell or rent your personal information to third parties.
         </li>
@@ -51,10 +201,12 @@
         <li class="list-item">
             <strong>Educational Content Disclaimer.</strong> The App provides questions and notes for educational purposes only. It is not intended to provide medical advice, diagnosis, or treatment. Users should consult qualified medical professionals for any health-related decisions.
         </li>
-    </ol>
+      </ol>
+    </section>
 
-    <h2>Terms of Service</h2>
-    <ol class="list">
+    <section class="card">
+      <h2>Terms of Service</h2>
+      <ol class="list">
         <li class="list-item">
             <strong>User Accounts.</strong> You are responsible for maintaining the confidentiality of your account password and for all activities that occur under your account. You agree to notify us immediately of any unauthorized use of your account.
         </li>
@@ -76,9 +228,13 @@
         <li class="list-item">
             <strong>Changes to These Terms.</strong> We may update this policy from time to time. Continued use of the App after any changes constitutes your acceptance of the new terms.
         </li>
-    </ol>
+      </ol>
+    </section>
 
-    <p class="text">If you have any questions, please contact us at: <a href="mailto:suture.live@proton.me">suture.live@proton.me</a></p>
+    <div class="contact-wrap">
+      <p class="text">If you have any questions, please contact us at:</p>
+      <a href="mailto:suture.live@proton.me" class="contact">suture.live@proton.me</a>
+    </div>
   </main>
 
   <script>
