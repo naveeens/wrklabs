@@ -166,23 +166,31 @@
     <a href="index.html" class="back-link">← back to index</a>
 
     <h1>Privacy Policy & Terms of Service for Kaas</h1>
-    <span class="date">Last Updated: July 9, 2026</span>
+    <span class="date">Last Updated: August 16, 2026</span>
     
     <p class="intro">Thank you for using Kaas ("the App"), a personal finance tracker. This document outlines our commitment to your privacy and the terms you agree to when using the App.</p>
 
     <h2>Privacy Policy</h2>
     <ol>
         <li>
-            <strong>Your Data is Stored Locally.</strong>
-            All transactions, categories, contacts, and configuration data you create in the App are stored only on your device. We do not have access to your data, and it is never sent to our servers.
+            <strong>Most of Your Data is Stored Locally.</strong>
+            Your transactions, categories, budgets, and other personal financial data are stored only on your device unless you explicitly share a split or loan with a contact. We do not have access to this local data, and it is never sent to our servers.
         </li>
         <li>
-            <strong>We Collect No Personal Information.</strong>
-            The App does not collect, transmit, or share any personal information, usage analytics, or crash reports. Your activity within the App is completely private.
+            <strong>Account & Display Name.</strong>
+            To share splits and loans with a contact, you create an account with a display name — no email or phone number is required. We use Supabase, a third-party backend provider, to store your account identifier, display name, and any splits or loans you choose to share.
+        </li>
+        <li>
+            <strong>Shared Splits & Loans Are Visible to the Other Party.</strong>
+            When you create a split or loan with a contact, that contact can see the display name, amount, description, and status of the record you shared with them. This shared record remains part of their own reconciliation and is not retroactively removed if you edit, delete, or remove it from your side, or delete your account.
+        </li>
+        <li>
+            <strong>Data Retention & Account Deletion.</strong>
+            You can delete your account at any time from Settings. This removes your account and display name from our servers. Splits or loans already visible to another user are not deleted from their view, since doing so would alter their own financial records without their consent.
         </li>
         <li>
             <strong>No Ads or Trackers.</strong>
-            The App is free of advertisements and third-party trackers.
+            The App is free of advertisements and third-party trackers. We do not run analytics or crash reporting.
         </li>
     </ol>
 
@@ -190,11 +198,23 @@
     <ol>
         <li>
             <strong>You Own Your Content.</strong>
-            You retain full ownership of and responsibility for all content and financial transactions you log in the App.
+            You retain full ownership of and responsibility for all content and financial transactions you log or share in the App.
+        </li>
+        <li>
+            <strong>Account & Display Name.</strong>
+            Your display name is not verified and does not need to match your real identity. You agree not to impersonate another person or use a display name to mislead the contacts you share splits or loans with. We may suspend or remove accounts that misuse this feature.
+        </li>
+        <li>
+            <strong>Splits & Loans Are Informal Records Only.</strong>
+            The App does not process, transfer, or hold real money. Splits and loans are personal bookkeeping tools between you and your contact. We are not a party to, and do not guarantee the accuracy or enforceability of, any debt or repayment arrangement between users. Any dispute about a shared split or loan is solely between the users involved.
+        </li>
+        <li>
+            <strong>Acceptable Use.</strong>
+            You agree not to use the sharing feature to harass, defraud, or mislead other users. We may suspend or remove accounts engaged in abuse.
         </li>
         <li>
             <strong>Back Up Your Data.</strong>
-            Because your data is stored only on your device, we cannot help you recover it if you lose your device or uninstall the App. You can export a JSON backup file in the Settings menu of the App, and you are solely responsible for keeping backups safe.
+            Data you have not shared with a contact is stored only on your device, and we cannot help you recover it if you lose your device or uninstall the App. You can export a JSON backup file in the Settings menu of the App, and you are solely responsible for keeping backups safe.
         </li>
         <li>
             <strong>Disclaimer of Warranty.</strong>
@@ -202,7 +222,7 @@
         </li>
         <li>
             <strong>Limitation of Liability.</strong>
-            In no event shall the developer be liable for any damages (including data loss or financial discrepancies) arising from the use of or inability to use the App.
+            In no event shall the developer be liable for any damages (including data loss, financial discrepancies, or disputes between users over shared splits or loans) arising from the use of or inability to use the App.
         </li>
         <li>
             <strong>Changes to These Terms.</strong>
